@@ -3,14 +3,29 @@ def count_sort(A,B,k):
     n = len(A)
     C = [0]*(k+1)
 
-    for i in range(n-1):
+    for i in range(n):
         C[A[i]] = C[A[i]] + 1
 
-    for i in range(1,k-1):
+    for i in range(1,k+1):
         C[i] = C[i] + C[i-1]
     
-    for i in range(n-1,0,-1):
-        B[C[A[i]]] = A[i]
+    for i in range(n-1,-1,-1):
+        B[C[A[i]]-1] = A[i]
+        C[A[i]] = C[A[i]] - 1
+    return B
+
+def count_sort_for_Radix(A,B,k,d):
+    n = len(A)
+    C = [0]*(k+1)
+
+    for i in range(n):
+        C[A[i]] = C[A[i]] + 1
+
+    for i in range(1,k+1):
+        C[i] = C[i] + C[i-1]
+    
+    for i in range(n-1,-1,-1):
+        B[C[A[i]]-1] = A[i]
         C[A[i]] = C[A[i]] - 1
     return B
 
@@ -18,9 +33,9 @@ def radix_sort(A):
     return None
 
 if __name__ == "__main__":
-    A = [1,5,3,6,9,3,5,7,2,6,8,6,6,1,4]
+    A = [2,5,3,0,2,3,0,3]
     B = [0] * (len(A))
-    k = 10
+    k = max(A)
 
     count_sort(A,B,k)
     print(B)
