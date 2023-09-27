@@ -1,4 +1,5 @@
-def CountSort(A,B,k):
+
+def count_sort(A,B,k):
     n = len(A)
     C = [0]*(k+1)
 
@@ -13,10 +14,13 @@ def CountSort(A,B,k):
         C[A[i]] = C[A[i]] - 1
     return B
 
-if __name__=="__main__":
+def radix_sort(A):
+    return None
+
+if __name__ == "__main__":
     A = [1,5,3,6,9,3,5,7,2,6,8,6,6,1,4]
     B = [0] * (len(A))
     k = 10
 
-    CountSort(A,B,k)
+    count_sort(A,B,k)
     print(B)
