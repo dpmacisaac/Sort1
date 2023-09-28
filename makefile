@@ -2,7 +2,7 @@ build:
 	pip install pytest
 
 run:
-	python sort_algorithms.py
+	python RadixSort_Strings.py
 
 test: 
 	pytest test_sort_algorithms.py
