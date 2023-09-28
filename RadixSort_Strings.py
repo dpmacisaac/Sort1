@@ -5,7 +5,6 @@
 """
 
 from copy import deepcopy
-import random
 
 
 def count_sort(A, B, k):
@@ -74,11 +73,24 @@ def radix_sort(A, d):
         A = deepcopy(B)
     return A
 
+def read_file(path):
+    try:
+        with open(path, 'r') as file:
+            lines = file.read().splitlines()
+        return lines
+    except:
+        return None
+
+def write_file(path, arr):
+    try:
+        with open(path, 'w') as file:
+            for item in arr:
+                file.write(str(item) + '\n')
+    except:
+        pass
 
 if __name__ == "__main__":
-    A = ["AAA", "CCC", "BBB", "AA", "AAC"]
-    d = len(max(A, key=len))
-    print(d)
-    A = radix_sort(A, d)
-    print(A)
-    print(sorted(A))
+    input_array = read_file('input.txt')
+    sorted_array = radix_sort(input_array,len(max(input_array,key=len)))
+    write_file("output.txt",sorted_array)
+
