@@ -24,7 +24,7 @@ def count_sort(A, B, k):
 
 
 def get_digit_from_val(s, dig):
-    '''
+    """
     takes a string and returns the ascii numerical value of the character at the index of dig
     Inputs:
         s (string)
@@ -32,10 +32,10 @@ def get_digit_from_val(s, dig):
     Outputs:
         val (int) - 0 if dig is outside the index of string, else ASCII value of the
             character at s[dig]
-    '''
-    if len(s) < dig:
+    """
+    if len(s) <= dig:
         return 0
-    return ord(s[dig])
+    return ord(s[len(s) - dig - 1])
 
 
 def count_sort_for_radix(A, B, k, d):
@@ -51,7 +51,7 @@ def count_sort_for_radix(A, B, k, d):
         None
     """
     n = len(A)
-    C = [0] * (k + 1) # initailize C
+    C = [0] * (k + 1)  # initailize C
 
     for i in range(n):
         digit_val = get_digit_from_val(A[i], d)
@@ -67,7 +67,7 @@ def count_sort_for_radix(A, B, k, d):
 
 
 def radix_sort(A, d):
-    k = 10
+    k = 256
     for i in range(0, d):
         B = [""] * len(A)
         count_sort_for_radix(A, B, k, i)
@@ -76,10 +76,9 @@ def radix_sort(A, d):
 
 
 if __name__ == "__main__":
-    A = ["CBADACCDDJGLEJZS", "abc", "ABFDSA", "18fndsaFDs"]
-    print(get_digit_from_val('ABC',2))
-
-    
-    d = 256
+    A = ["AAA", "CCC", "BBB", "AA", "AAC"]
+    d = len(max(A, key=len))
+    print(d)
     A = radix_sort(A, d)
     print(A)
+    print(sorted(A))
