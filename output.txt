@@ -1,10 +1,5 @@
-A
-AB
-BA
-ABC
-BAC
-CAB
-CBA
-CBADFDSAFDS
-DSAFEGKSfoqldDQJ45I885I
-abcdefghijklmnopqrstuvwzyx12345567890!@#$%^&*()_=+[]\'/.,;'?><:"{}|+`~ABCDFQUOPRUYEIKLDMNA
+a
+abcd
+abcde
+bcde
+efg
